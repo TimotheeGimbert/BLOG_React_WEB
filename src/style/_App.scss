@@ -1,0 +1,61 @@
+*, *:before, *:after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html, body {
+  height: 100%;
+}
+
+
+// Links default colors disable
+a { 
+  &:link {color: inherit; text-decoration: none !important;}
+  &:visited {color: inherit !important;}
+  &:active {color: inherit !important;}
+}
+
+
+// Links underlining animation when hovered
+a, a:visited {
+	text-decoration: none;
+	position: relative;
+	&:after {
+		content: '';
+		height: 1px;
+		position: absolute;
+		bottom: -3px;
+		left: 0;
+		width: 0%;
+		background: black;
+		transition: 0.5s;
+	}
+	&:hover:after {
+		width: 100%;
+	}
+}
+
+
+// Classic button custom design
+$btn-bg: rgba(34, 31, 31, 0.199);
+$btn-radius: 6px;
+$btn-padding: .3vw 2vw;
+$btn-shadow: -3px -3px rgba(36, 31, 31, 0.096);
+$btn-transition: transform 1000ms;
+$btn-hover-transform: scale(1.3);
+
+button {
+  background-color: $btn-bg;
+  color: $txt-grey;
+  padding: $btn-padding;
+  border: none;
+  border-radius: $btn-radius;
+  box-shadow: $btn-shadow;
+  transition: $btn-transition;
+  &:hover {
+    transform: $btn-hover-transform;  
+    cursor: pointer;
+  }
+
+}

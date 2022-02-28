@@ -1,0 +1,33 @@
+@import '/src/style/variables';
+
+
+$header-padding: $gap-y $gap-x;
+$header-logo-width: 60px;
+$header-title-size: 1.1rem;
+$breakpoint: 900px;
+
+.Header {
+  width: 100%;
+  padding: $header-padding;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  img {
+    width: $header-logo-width;
+    margin-right: calc($gap-y / 2);
+  }
+  
+
+  a {
+    margin-right: calc($gap-y);
+    @media screen and (max-width: $breakpoint) {
+      margin-left: calc($gap-x / 3);
+    }
+    
+    h1 {
+      font-size: $header-title-size;
+    }
+  }
+}
+
