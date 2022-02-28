@@ -1,36 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import Hero from 'components/pages/Hero';
-import Article from './Article';
+import Hero from 'components/Hero';
+import CardArticle from '../components/CardArticle';
 import APIManager from 'services/axiosMethods';
 
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
 
+  useEffect( () => {
+    doFetch();
+  }, []);
 
-  const doFetch2 = async () => {
+  const doFetch = async () => {
     const response = await APIManager.getArticles();
     setArticles(response);
   }
 
-  useEffect( () => {
-    doFetch2();
-  }, []);
-
-  useEffect(() => {
-
-    console.log(articles);
-  }, [articles])
 
   return (
     <div className='Home'>
       <Hero />
       {
         articles.map( (article, index) => {
-         return <Article article={article} key={index}/>
+         return <CardArticle article={article} key={index}/>
         })
       }
-        <button onClick={() => doFetch2()}></button>
     </div>
   );
 };

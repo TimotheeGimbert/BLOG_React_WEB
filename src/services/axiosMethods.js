@@ -18,4 +18,8 @@ export default class APIManager {
       const response = await API.get(API_URL);
       return response.data;
   }
+  static async deleteArticle(id) {
+    const response = await API.delete(API_URL + `/articles/${id}`);
+    return response.data;
+}
 }
