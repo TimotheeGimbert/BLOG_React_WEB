@@ -16,6 +16,29 @@ const Home = () => {
     setArticles(response);
   }
 
+  const handleSignUp = async () => {
+    const authObject = { "user": {
+      "email": "test222@yopmail.com",
+      "password": "azerty"
+    }};
+    const response = await APIManager.signUp(authObject);
+    console.log(response);
+  }
+
+  const handleLogIn = async () => {
+    const authObject = { "user": {
+      "email": "test222@yopmail.com",
+      "password": "azerty"
+    }};
+    const response = await APIManager.logIn(authObject);
+    console.log(response);
+  }
+
+  const handleLogOut = async () => {
+    const response = await APIManager.logOut();
+    console.log(response);
+  }
+
 
   return (
     <div className='Home'>
@@ -25,6 +48,9 @@ const Home = () => {
          return <CardArticle article={article} key={index}/>
         })
       }
+      <button onClick={() => handleSignUp()}>SignUP</button>
+      <button onClick={() => handleLogIn()}>LogIn</button>
+      <button onClick={() => handleLogOut()}>LogOut</button>
     </div>
   );
 };

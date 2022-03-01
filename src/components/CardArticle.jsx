@@ -12,8 +12,8 @@ const CardArticle = ( props ) => {
   }, []);
 
   const fetchAuthor = async (authorId) => {
-    const response = await APIManager.getAuthorName(authorId);
-    setAuthor(response);
+    //const response = await APIManager.getAuthorName(authorId);
+    //setAuthor(response);
   }
 
   return (

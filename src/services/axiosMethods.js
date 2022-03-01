@@ -18,16 +18,32 @@ export default class APIManager {
     const response = await API.get(API_URL);
     return response.data;
   }
-  static async getAuthorName(id) {
+/*   static async getAuthorName(id) {
     const response = await API.get(API_URL + `/users/${id}`);
     return response.data;
-  }
+  } */
   static async editArticle(id, newArticle) {
     const response = await API.put(API_URL + `/articles/${id}`, newArticle);
     return response.data;
   }
   static async deleteArticle(id) {
     const response = await API.delete(API_URL + `/articles/${id}`);
+    return response.data;
+  }
+  static async logIn(authObject) {
+    console.log(authObject)
+    const response = await API.post(API_URL + `/users/sign_in`, authObject);
+    console.log(response);
+    return response.data;
+  }
+  static async signUp(authObject) {
+    console.log(authObject)
+    const response = await API.post(API_URL + `/users`, authObject);
+    console.log(response);
+    return response.data;
+  }
+  static async logOut() {
+    const response = await API.delete(API_URL + `/users/sign_out`);
     return response.data;
   }
 }
