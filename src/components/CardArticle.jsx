@@ -7,7 +7,7 @@ import APIManager from 'services/axiosMethods';
 const CardArticle = ( props ) => {
   const [author, setAuthor] = useState([]);
 
-  useEffect( (props) => {
+  useEffect( () => {
     fetchAuthor(props.article.user_id);
   }, []);
 

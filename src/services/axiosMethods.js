@@ -18,6 +18,10 @@ export default class APIManager {
     const response = await API.get(API_URL);
     return response.data;
   }
+  static async createArticle(newArticle) {
+    const response = await API.post(API_URL + '/articles/', newArticle);
+    return response.data;
+  }
   static async getAuthorName(id) {
     const response = await API.get(API_URL + `/users/${id}`);
     return response.data;
