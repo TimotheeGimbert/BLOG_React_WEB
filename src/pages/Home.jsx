@@ -8,10 +8,10 @@ const Home = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect( () => {
-    doFetch();
+    fetchArticles();
   }, []);
 
-  const doFetch = async () => {
+  const fetchArticles = async () => {
     const response = await APIManager.getArticles();
     setArticles(response);
   }

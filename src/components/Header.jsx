@@ -7,7 +7,7 @@ import './Header.scss';
 const Header = () => {
   return (
     <div className='Header'>
-      <Link to='/'><h1>React + Rails = API REST CRUD Blog</h1></Link>
+      <Link to='/'><h1>Blog</h1></Link>
     </div>
   );
 };
