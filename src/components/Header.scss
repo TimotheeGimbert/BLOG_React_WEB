@@ -10,7 +10,7 @@ $breakpoint: 900px;
   width: 100%;
   padding: $header-padding;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 
   img {
@@ -28,6 +28,10 @@ $breakpoint: 900px;
     h1 {
       font-size: $header-title-size;
     }
+  }
+
+  button {
+    margin: 0 1%;
   }
 }
 

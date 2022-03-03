@@ -14,6 +14,22 @@ API.interceptors.request.use(({ headers, ...config }) => ({
 }));
 
 export default class APIManager {
+
+  static async register(payload) {
+    const response = await API.post(API_URL + `/users`, payload);
+    console.log('>>> REGISTER response: ', response)
+    return response.headers.authorization.split(' ')[1];
+  }
+  static async logIn(payload) {
+    const response = await API.post(API_URL + `/users/sign_in`, payload);
+    console.log('>>> LOGIN response: ', response)
+    return response;
+  }
+  static async logOut() {
+    const response = await API.delete(API_URL + `/users/sign_out`);
+    console.log('>>> LOGOUT response: ', response)
+    return response;
+  }
   static async getArticles() {
     const response = await API.get(API_URL);
     return response.data;
@@ -28,22 +44,6 @@ export default class APIManager {
   }
   static async deleteArticle(id) {
     const response = await API.delete(API_URL + `/articles/${id}`);
-    return response.data;
-  }
-  static async logIn(authObject) {
-    console.log(authObject)
-    const response = await API.post(API_URL + `/users/sign_in`, authObject);
-    console.log(response);
-    return response.data;
-  }
-  static async signUp(authObject) {
-    console.log(authObject)
-    const response = await API.post(API_URL + `/users`, authObject);
-    console.log(response);
-    return response.data;
-  }
-  static async logOut() {
-    const response = await API.delete(API_URL + `/users/sign_out`);
     return response.data;
   }
 }

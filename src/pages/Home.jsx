@@ -27,7 +27,7 @@ const Home = () => {
 
   const handleLogIn = async () => {
     const authObject = { "user": {
-      "email": "test222@yopmail.com",
+      "email": "test2223@yopmail.com",
       "password": "azerty"
     }};
     const response = await APIManager.logIn(authObject);
@@ -43,11 +43,11 @@ const Home = () => {
   return (
     <div className='Home'>
       <Hero />
-      {
+{/*       {
         articles.map( (article, index) => {
          return <CardArticle article={article} key={index}/>
         })
-      }
+      } */}
       <button onClick={() => handleSignUp()}>SignUP</button>
       <button onClick={() => handleLogIn()}>LogIn</button>
       <button onClick={() => handleLogOut()}>LogOut</button>
