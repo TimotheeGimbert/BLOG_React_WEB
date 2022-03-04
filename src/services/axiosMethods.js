@@ -22,7 +22,6 @@ export default class APIManager {
   }
   static async logIn(payload) {
     const response = await API.post(API_URL + `/users/sign_in`, payload);
-    console.log('>>> LOGIN response: ', response)
     return response;
   }
   static async logOut() {

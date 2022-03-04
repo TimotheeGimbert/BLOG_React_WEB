@@ -9,6 +9,7 @@ const Header = () => {
 
   const handleDisconnect = async () => {
     await APIManager.logOut()
+    Cookies.remove('token')
   }
 
   return (
@@ -19,6 +20,7 @@ const Header = () => {
         <Link to='/login'><button>Login</button></Link>
         <button onClick={() => handleDisconnect()}>Disconnect</button>
         <button onClick={() => console.log(Cookies.get("token"))}>See cookies</button>
+        <button onClick={() => Cookies.remove("token")}>Remove cookies</button>
       </div>
     </div>
   );

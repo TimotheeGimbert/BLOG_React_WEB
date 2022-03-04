@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import APIManager from 'services/axiosMethods'
+import Cookies from 'js-cookie';
 
 
 const Login = () => {
@@ -14,7 +15,21 @@ const Login = () => {
         "password": password
       }
     }
-    await APIManager.logIn(payload)
+    fetch("http://localhost:3000/users/sign_in", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    }).then((res) => {
+      if (res.ok) {
+        const token = res.headers.get("Authorization");
+        Cookies.set("token", token.split(' ')[1]);
+        console.log(res);
+      } else {
+        throw new Error(res);
+      }
+    });
   }
 
   return (
